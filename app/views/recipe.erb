@@ -1,0 +1,23 @@
+    <h1><%= @recipe.title %></h1>
+    <h2>Description</h2>
+    <div class="description">
+      <%= @recipe.description %>
+    </div>
+    <h2>
+      Ingredients
+    </h2>
+    <ul>
+      <li><%= @recipe.ingredients.gsub(/\r\n/,'</li><li>') %>
+      </li>
+    </ul>
+    <h2>Directions</h2>
+    <ol>
+      <li><%= @recipe.directions.gsub(/\r\n/,'</li><li>') %>
+      </li>
+    </ol>
+    <form method="get" action="/recipes/<%= @recipe.id %>/edit">
+      <input type="submit" value="Edit">
+    </form>
+    <form method="post" action="/delete/<%= @recipe.id %>">
+      <input name="_method" type="submit" value="Delete" />
+    </form>
